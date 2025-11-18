@@ -34,7 +34,24 @@ public class Game {
             System.out.println("I didn’t spend all of that time and money just for you to not want to go to school! It would be a bad look if you didn’t show up on your first day…");
                 } else if (choice1.equals("C") || choice1.equals("c")){
                 System.out.println("Fine...");
+                for (int i = 0; i <=3; i++){
+                    choice1 = scanner.nextLine();
+            if (choice1.equals("A") || choice1.equals("a")){
+            System.out.println("That’s the spirit!! ");
+            break;
+             } else if (choice1.equals("B") || choice1.equals("b")){
+            System.out.println("I didn’t spend all of that time and money just for you to not want to go to school! It would be a bad look if you didn’t show up on your first day…");
+            break;
+                } else if (choice1.equals("C") || choice1.equals("c")){
+                System.out.println("Fine...");
+
+                    if (i == 3){
+                        printDramaticText("You slept so long that they discontinued the penny in your sleep...");
+                        player.losealife();
+                    }
+                }
                     } 
+                }
              else{
             System.out.println("game devs didn't spend days locked in the basement for you to ignore instructions :(");
             }
