@@ -1,16 +1,38 @@
 public class Player {
     
-    public String x;
-    public String y;
+    public String name;
+   
+    public int life = 3;
 
-    public int a;
-    public int b;
 
-    public Player (String x, String y){
-        this.x = x;
-        this.y = y;
+    public Player (String name){
+        this.name = name;
+        
     }
-    public void dosomething(){
-        System.out.println (this.x + this.y + "does something");
+   
+    public void losealife(){
+        System.out.println (this.name + "lost a life!");
+        life --; 
+        System.out.println("Lives left: " + life );
     }
+
+    public static int rollD20(){
+        int r = (int)(Math.random() * 20) + 1;
+        Ascii.drawD20(r);
+        return r;
+    }
+
+    public static int rollAdvantage(){
+        int first  = (int)(Math.random() * 20) + 1;
+        Ascii.drawD20(first);
+        int second =  (int)(Math.random() * 20) + 1;
+        Ascii.drawD20(second);
+        if (first > second){
+            return first;
+        }
+        else{
+            return second;
+        }
+    }
+
 }
