@@ -27,6 +27,7 @@ public class Game {
         printDramaticText("WAKE UP!!!!");
         printDramaticText("First day of school today! Feeling ready?");
         System.out.println("A) I’m so excited! This school year’s gonna be great!\nB) Is it too late to unenroll?\nC) 5 more minutes…");
+        System.out.println("Press A for choice A, B for choice B, or C for choice C to continue");
         String choice1 = scanner.nextLine();
             if (choice1.equals("A") || choice1.equals("a")){
             System.out.println("That’s the spirit!! ");
@@ -34,8 +35,11 @@ public class Game {
             System.out.println("I didn’t spend all of that time and money just for you to not want to go to school! It would be a bad look if you didn’t show up on your first day…");
                 } else if (choice1.equals("C") || choice1.equals("c")){
                 System.out.println("Fine...");
+                    
                 for (int i = 0; i <=3; i++){
-                    choice1 = scanner.nextLine();
+                System.out.println("A) I’m so excited! This school year’s gonna be great!\nB) Is it too late to unenroll?\nC) 5 more minutes…");    
+                System.out.println("Press A for choice A, B for choice B, or C for choice C to contimue");   
+                choice1 = scanner.nextLine();
             if (choice1.equals("A") || choice1.equals("a")){
             System.out.println("That’s the spirit!! ");
             break;
@@ -44,7 +48,6 @@ public class Game {
             break;
                 } else if (choice1.equals("C") || choice1.equals("c")){
                 System.out.println("Fine...");
-
                     if (i == 3){
                         printDramaticText("You slept so long that they discontinued the penny in your sleep...");
                         player.losealife();
