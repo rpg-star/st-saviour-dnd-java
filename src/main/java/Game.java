@@ -11,12 +11,11 @@ public class Game {
         // Collect character name from user.
         System.out.print("Name: ");
         String name = scanner.nextLine();
-
         // Collect character role from user.
         // System.out.print("Role: ");
         // String role = scanner.nextLine();
 
-        Player player = new Player (name);
+        Player player = new Player(name);
         System.out.println("Your name is " + name + "!");
         
         // TODO Create character by collecting user input (name + role.
@@ -24,6 +23,9 @@ public class Game {
         // TODO Print character sheet.
 
         // Start the adventure.
+       
+       boolean endgame = false;
+        while (player.life > 0) {
         printDramaticText("WAKE UP!!!!");
         printDramaticText("First day of school today! Feeling ready?");
         System.out.println("A) I’m so excited! This school year’s gonna be great!\nB) Is it too late to unenroll?\nC) 5 more minutes…");
@@ -36,28 +38,32 @@ public class Game {
                 } else if (choice1.equals("C") || choice1.equals("c")){
                 System.out.println("Fine...");
                     
-                for (int i = 0; i <=3; i++){
+                while (player.life > 0){
                 System.out.println("A) I’m so excited! This school year’s gonna be great!\nB) Is it too late to unenroll?\nC) 5 more minutes…");    
                 System.out.println("Press A for choice A, B for choice B, or C for choice C to contimue");   
                 choice1 = scanner.nextLine();
             if (choice1.equals("A") || choice1.equals("a")){
             System.out.println("That’s the spirit!! ");
+            endgame = false;
             break;
              } else if (choice1.equals("B") || choice1.equals("b")){
             System.out.println("I didn’t spend all of that time and money just for you to not want to go to school! It would be a bad look if you didn’t show up on your first day…");
+            endgame = false;
             break;
                 } else if (choice1.equals("C") || choice1.equals("c")){
                 System.out.println("Fine...");
-                    if (i == 3){
+                player.losealife();
+                    if (player.life == 0){
                         printDramaticText("You slept so long that they discontinued the penny in your sleep...");
-                        player.losealife();
+                        endgame = true;
+                        break;
                     }
-                }
-                    } 
-                }
+                } //oye theres something you gotta fix please help idk how to eng the game
+           }
              else{
             System.out.println("game devs didn't spend days locked in the basement for you to ignore instructions :(");
             }
+        }
         printDramaticText("You get up and go brush your teeth. A part of you is excited for this new year, but the other half is slightly worried. Will things be the same as they were last year, or will they be different? You start to wonder off into thought, and the morning flies by. It's already time to enter the school, and you notice that your hands are slightly shaking from the nerves. You open the door.");
         System.out.println("Welcome to John Persona High!\npretend theres a really cool school animation because game devs dont get paid enough to animate");
         printDramaticText("You walk into the school, and you check the time. The bell will ring in 5 minutes, and you have no idea where any of the classes are at. You… ");
@@ -79,7 +85,7 @@ public class Game {
                 System.out.println("The teacher reprimands you for being late, but class continues on as normal. You introduce yourself to everyone, the class nods and goes back to doing their work.");
                 player.losealife();
             }
-        System.out.println("⋆*･ﾟ:⋆*･ﾟTIME SKIP⋆*･ﾟ:⋆*･ﾟ");
+        System.out.println("⋆*･ﾟ:⋆*･ﾟTIME SKIP⋆*･ﾟ:⋆*･ﾟ\n");
         System.out.println("Its lunch time! Finally! You’re starving, but wait…\n DICE ROLL!!");
             scanner.nextLine();
          int roll2 = Player.rollD20();
@@ -91,11 +97,29 @@ public class Game {
                 player.losealife();
             }
         printDramaticText("You look around for a place to sit. You see a person sitting alone, and decide to sit with her. Normally, you would get a fleshed out interaction with her, but because the game devs don’t get paid enough, all you need to know is that the girl’s name is Amber and that you and Amber are bros now. If you want more dialogue, you can fund the dev team yourself.");
-        printDramaticText("\nYou head back to class, but it seems like you’re about to run into trouble! The dean is walking up to you, and you realize why. You forgot that in this school, you can’t have your phone out!");
+        printDramaticText("\nYou head back to class, but it seems like you’re about to run into trouble! The dean is walking up to you, and you realize why. You forgot that in this school, you can’t have your phone out! You: ");
+        System.out.println ("A) Run away! What is she gonna do, run down?\nB) Confront her and convince her to change the policy\nC) Accept your detention"); 
+            String choice2 = scanner.nextLine();
+            if(choice2.equals("A") || choice2.equals("a")){
+                int roll3 = player.rollD20();
+                    if(roll3 >= 0 && roll3 <= 10){
+                        System.out.println("You successfully escaped! All of that running to catch the train has finally paid off!");
+                    } else {
+                        System.out.println("Unfortunately the dean caught up to you, and now you have detention after school for trying to escape and having your phone out. It sucks to suck I guess.");
+                        player.losealife();
+                    }
+                    }
+            if(choice2.equals("B") || choice2.equals("b")){
+                System.out.println();
+            }
+                
+            }
+        }
+        System.out.println("Game over!");
         // Roll a d20
-        System.out.print("Press Enter to roll a d20.");
-        scanner.nextLine();
-        Player.rollD20();
+        // System.out.print("Press Enter to roll a d20.");
+        // scanner.nextLine();
+        // Player.rollD20();
        
 
         // TODO Continue ...
@@ -103,7 +127,7 @@ public class Game {
         
     public static void printDramaticText(String text) {
         // Delay in milliseconds
-        int delay = 100;
+        int delay = 50;
 
         for (char c : text.toCharArray()) {
             System.out.print(c);

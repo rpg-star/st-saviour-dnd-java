@@ -7,11 +7,10 @@ public class Player {
 
     public Player (String name){
         this.name = name;
-        
     }
    
     public void losealife(){
-        System.out.println (this.name + "lost a life!");
+        System.out.println (this.name + " lost a life!");
         life --; 
         System.out.println("Lives left: " + life );
     }
@@ -22,17 +21,17 @@ public class Player {
         return r;
     }
 
-    public static int rollAdvantage(){
-        int first  = (int)(Math.random() * 20) + 1;
-        Ascii.drawD20(first);
-        int second =  (int)(Math.random() * 20) + 1;
-        Ascii.drawD20(second);
-        if (first > second){
-            return first;
-        }
-        else{
-            return second;
-        }
-    }
+    // public static int rollAdvantage(){
+    //     int first  = (int)(Math.random() * 20) + 1;
+    //     Ascii.drawD20(first);
+    //     int second =  (int)(Math.random() * 20) + 1;
+    //     Ascii.drawD20(second);
+    //     if (first > second){
+    //         return first;
+    //     }
+    //     else{
+    //         return second;
+    //     }
+    // }
 
 }
