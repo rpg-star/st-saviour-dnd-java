@@ -58,7 +58,7 @@ public class Game {
                         endgame = true;
                         break;
                     }
-                } //oye theres something you gotta fix please help idk how to eng the game
+                } //oye theres something you gotta fix please help idk how to end the game
            }
              else{
             System.out.println("game devs didn't spend days locked in the basement for you to ignore instructions :(");
@@ -110,12 +110,57 @@ public class Game {
                     }
                     }
             if(choice2.equals("B") || choice2.equals("b")){
-                System.out.println();
+                int roll3 = player.rollD20();
+                if(roll3 >= 0 && roll3 <= 10){
+                System.out.println("Somehow, you managed to convince the dean to remove the phone policy! Now everyone in the school loves you, and you gsin respect from the teachers. Its only day 1 and you're already extremely popular!");
+                }else{
+                    System.out.println("Did you really think that was gonna work? Just put the detention in the bag buddy");
+                    player.losealife();
+                }
             }
-                
+            if (choice2.equals("C") || choice2.equals("c")){
+                int roll3 = player.rollD20();
+                if(roll3 >= 0 && roll3 <= 18){
+                    System.out.println("Did you think the dean would excuse you out of pity? Nice try.");
+                    player.losealife();
+                } else{
+                    System.out.println("Wow! the dean was nice enough to excuse your detention. I guess she took pity on you for being new? Be more careful in the future, because the dean isn't known for her acts of charity.")
+                }
+            } else {
+                System.out.println("this extra line of code is taking up unecessary space because of your stupidity. The dev team is done with you");
+            }
+        printDramaticText("You walk to class and try to get through the rest of the day. It's 6th period and...");
+        printDramaticText("HEY! YOU CAN'T FALL ASLEEP! THIS IS GONNA BE ON THE QUIZ!!");
+        printDramaticText("You can really...feel...the sleepiness...kick in... You:");
+        System.out.println("A) Fall asleep. You already knew this stuff anyway.\nB) Stay awake. If you don't, the quiz will kick your butt! Besides, what if the teacher decides to call you out for napping?");
+            String choice3 = scanner.nextLine();
+            if (choice3.equals("A") || choice3.equals("a")){
+                int roll4 = player.rollD20();
+                if (roll4 >= 0 && roll4 <= 12)
+                System.out.println("You take a little nap, and you even start to dream for a bit. You wake up energized and refreshed, ready for the last classes of the day!");
+            } else {
+                System.out.println("The teacher catches you sleeping, and humiliates you in front of the class. What a lovely first impression...");
+                player.losealife();
+            }
+            if (choice3.equals("B") || choice3.equals("b")){
+                int roll4 = player.rollD20();
+                if (roll4 >= 0 && roll4 <=15){
+                    System.out.println("You fight your sleepiness and pay attention. Turns out you already knew the information, but at least it served as a refresher?")
+                } else{
+                    System.out.println("You try your hardest to not succumb to your sleepiness, but for the whole period you were on the verge of being knocked out. You ended up not paying attention as a result of trying not to sleep. At that point, you should've just slept...");
+                    player.losealife();
+                }
+              
+            } else {
+                System.out.println("if you dont follow the instructions the poor dev team worked on john coding WILL place a curse on you")
+            } 
+
+        System.out.println("⋆*･ﾟ:⋆*･ﾟTIME SKIP (dev team doesnt get paid for extra dialogue)⋆*･ﾟ:⋆*･ﾟ\n");
+        printDramaticText("The day is over, and you think about your first day at John Persona High. It'll take a while to get used to, but with your new friend and friends to come, you'll have a great time");
+        break;
             }
         }
-        System.out.println("Game over!");
+        System.out.println("Game over! Thank you for playing");
         // Roll a d20
         // System.out.print("Press Enter to roll a d20.");
         // scanner.nextLine();
