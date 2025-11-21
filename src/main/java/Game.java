@@ -23,21 +23,23 @@ public class Game {
         // TODO Print character sheet.
 
         // Start the adventure.
-       
+        int lives = 3;
        boolean endgame = false;
-        while (player.life > 0) {
+        while (lives > 0) {
         printDramaticText("WAKE UP!!!!");
         printDramaticText("First day of school today! Feeling ready?");
         System.out.println("A) I’m so excited! This school year’s gonna be great!\nB) Is it too late to unenroll?\nC) 5 more minutes…");
         System.out.println("Press A for choice A, B for choice B, or C for choice C to continue");
         String choice1 = scanner.nextLine();
+        //collects user input
             if (choice1.equals("A") || choice1.equals("a")){
             System.out.println("That’s the spirit!! ");
+            //if user types A or a, print line 36
              } else if (choice1.equals("B") || choice1.equals("b")){
             System.out.println("I didn’t spend all of that time and money just for you to not want to go to school! It would be a bad look if you didn’t show up on your first day…");
-                } else if (choice1.equals("C") || choice1.equals("c")){
-                System.out.println("Fine...");
-                    
+            //if user types B or b, print line 39  
+            } else if (choice1.equals("C") || choice1.equals("c")){
+                System.out.println("Fine...");   
                 while (player.life > 0){
                 System.out.println("A) I’m so excited! This school year’s gonna be great!\nB) Is it too late to unenroll?\nC) 5 more minutes…");    
                 System.out.println("Press A for choice A, B for choice B, or C for choice C to contimue");   
@@ -53,26 +55,35 @@ public class Game {
                 } else if (choice1.equals("C") || choice1.equals("c")){
                 System.out.println("Fine...");
                 player.losealife();
-                    if (player.life == 0){
+                lives --;
+                    if (player.life == 0 && lives == 0){
                         printDramaticText("You slept so long that they discontinued the penny in your sleep...");
                         endgame = true;
                         break;
                     }
-                } //oye theres something you gotta fix please help idk how to end the game
-           }
-             else{
+                }   
+                else {
             System.out.println("game devs didn't spend days locked in the basement for you to ignore instructions :(");
             }
+
+                 //theres something you gotta fix please help idk how to end the game
+           }
+        if (endgame = true){
+            break;
+        }            
         }
         printDramaticText("You get up and go brush your teeth. A part of you is excited for this new year, but the other half is slightly worried. Will things be the same as they were last year, or will they be different? You start to wonder off into thought, and the morning flies by. It's already time to enter the school, and you notice that your hands are slightly shaking from the nerves. You open the door.");
         System.out.println("Welcome to John Persona High!\npretend theres a really cool school animation because game devs dont get paid enough to animate");
         printDramaticText("You walk into the school, and you check the time. The bell will ring in 5 minutes, and you have no idea where any of the classes are at. You… ");
         System.out.println("DICE ROLL!\nPress enter to roll");
             scanner.nextLine();
-           int roll1 = Player.rollD20();
+            //collects user input
+           int roll1 = Player.rollD20(); 
+           //makes an int that saves the value of the roll
                 if(roll1 >= 1 && roll1 <= 7){
                     System.out.println("You’re basically unstoppable! Some may be directionally challenged, but you aren’t! Hopefully you aren’t late to the next one!!!");
-            } else if (roll1 >= 8 && roll1 <= 15){
+           //if the roll value is {1 - 7},, print line 78
+                } else if (roll1 >= 8 && roll1 <= 15){
                 System.out.println("You start to look for your next class, but you realize something. You’re completely lost. As you lose hope you…\n");
                 printDramaticText("Random student: " + "OUCH!!\nI’m so sorry i didnt mean to run into you!! I knocked the books out of your hands too! Please forgive me!!\n");
                 System.out.println("The kind girl helps you compose yourself, picking up the books you carried in your hand. Wait hold on, don't you have a locker? You realize how much of an idiot you are and how easily this could have been avoided. Its too late now, and the girl looks at you with a kind gaze.\n");
@@ -95,6 +106,7 @@ public class Game {
             else{
                 System.out.println("You left your wallet at home… Looks like you have to starve :(");
                 player.losealife();
+                lives--;
             }
         printDramaticText("You look around for a place to sit. You see a person sitting alone, and decide to sit with her. Normally, you would get a fleshed out interaction with her, but because the game devs don’t get paid enough, all you need to know is that the girl’s name is Amber and that you and Amber are bros now. If you want more dialogue, you can fund the dev team yourself.");
         printDramaticText("\nYou head back to class, but it seems like you’re about to run into trouble! The dean is walking up to you, and you realize why. You forgot that in this school, you can’t have your phone out! You: ");
@@ -107,8 +119,9 @@ public class Game {
                     } else {
                         System.out.println("Unfortunately the dean caught up to you, and now you have detention after school for trying to escape and having your phone out. It sucks to suck I guess.");
                         player.losealife();
+                        lives--;
                     }
-                    }
+                }
             if(choice2.equals("B") || choice2.equals("b")){
                 int roll3 = player.rollD20();
                 if(roll3 >= 0 && roll3 <= 10){
@@ -116,6 +129,7 @@ public class Game {
                 }else{
                     System.out.println("Did you really think that was gonna work? Just put the detention in the bag buddy");
                     player.losealife();
+                    lives--;
                 }
             }
             if (choice2.equals("C") || choice2.equals("c")){
@@ -123,8 +137,9 @@ public class Game {
                 if(roll3 >= 0 && roll3 <= 18){
                     System.out.println("Did you think the dean would excuse you out of pity? Nice try.");
                     player.losealife();
+                    lives--;
                 } else{
-                    System.out.println("Wow! the dean was nice enough to excuse your detention. I guess she took pity on you for being new? Be more careful in the future, because the dean isn't known for her acts of charity.")
+                    System.out.println("Wow! the dean was nice enough to excuse your detention. I guess she took pity on you for being new? Be more careful in the future, because the dean isn't known for her acts of charity.");
                 }
             } else {
                 System.out.println("this extra line of code is taking up unecessary space because of your stupidity. The dev team is done with you");
@@ -141,26 +156,31 @@ public class Game {
             } else {
                 System.out.println("The teacher catches you sleeping, and humiliates you in front of the class. What a lovely first impression...");
                 player.losealife();
+                lives--;
             }
             if (choice3.equals("B") || choice3.equals("b")){
                 int roll4 = player.rollD20();
                 if (roll4 >= 0 && roll4 <=15){
-                    System.out.println("You fight your sleepiness and pay attention. Turns out you already knew the information, but at least it served as a refresher?")
+                    System.out.println("You fight your sleepiness and pay attention. Turns out you already knew the information, but at least it served as a refresher?");
                 } else{
                     System.out.println("You try your hardest to not succumb to your sleepiness, but for the whole period you were on the verge of being knocked out. You ended up not paying attention as a result of trying not to sleep. At that point, you should've just slept...");
                     player.losealife();
+                    lives--;
                 }
               
             } else {
-                System.out.println("if you dont follow the instructions the poor dev team worked on john coding WILL place a curse on you")
+                System.out.println("if you dont follow the instructions the poor dev team worked on john coding WILL place a curse on you");
             } 
 
         System.out.println("⋆*･ﾟ:⋆*･ﾟTIME SKIP (dev team doesnt get paid for extra dialogue)⋆*･ﾟ:⋆*･ﾟ\n");
         printDramaticText("The day is over, and you think about your first day at John Persona High. It'll take a while to get used to, but with your new friend and friends to come, you'll have a great time");
+       if(player.life > 0 && lives > 0){ 
         break;
-            }
+        }            
         }
         System.out.println("Game over! Thank you for playing");
+        }
+        
         // Roll a d20
         // System.out.print("Press Enter to roll a d20.");
         // scanner.nextLine();
@@ -168,7 +188,7 @@ public class Game {
        
 
         // TODO Continue ...
-    }
+    
         
     public static void printDramaticText(String text) {
         // Delay in milliseconds
@@ -185,40 +205,8 @@ public class Game {
         }
         System.out.println();
     }
+}
 
     // Draws a monster and returns an int which represents the difficulty of roll required.
-    public static int generateMonster() {
-        int r = (int)(Math.random() * 6) + 1;
-        if(r == 1 || r == 2 || r == 3) {
-            String zombie = Character.toString(0x1F9DF);
-            System.out.println("++++++++ " + zombie + " A HORDE OF ZOMBIES " + zombie + " ++++++++");
-            System.out.println("+                                        +");
-            System.out.println("+           roll required:  8            +");
-            System.out.println("+                                        +");
-            System.out.println("++++++++++++++++++++++++++++++++++++++++++");
+    
 
-            return 8;
-        }
-        if(r == 4 || r == 5) {
-            String mask = Character.toString(0x1F3AD);
-            System.out.println("++++++++++ " + mask + " DISGUISED MIMIC " + mask + " +++++++++");
-            System.out.println("+                                        +");
-            System.out.println("+           roll required:  12           +");
-            System.out.println("+                                        +");
-            System.out.println("++++++++++++++++++++++++++++++++++++++++++");
-
-            return 12;
-        }
-        if(r == 6) {
-            String eye = Character.toString(0x1F441);
-            System.out.println("+++++++++++ " + eye +  " EVIL BEHOLDER " + eye + " ++++++++++++");
-            System.out.println("+                                        +");
-            System.out.println("+           roll required:  18           +");
-            System.out.println("+                                        +");
-            System.out.println("++++++++++++++++++++++++++++++++++++++++++");
-
-            return 18;
-        }
-        return -1;
-    } 
-}
