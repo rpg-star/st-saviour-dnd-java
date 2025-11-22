@@ -65,8 +65,6 @@ public class Game {
                 else {
             System.out.println("game devs didn't spend days locked in the basement for you to ignore instructions :(");
             }
-
-                 //theres something you gotta fix please help idk how to end the game
            }
         if (endgame = true){
             break;
@@ -82,7 +80,7 @@ public class Game {
            //makes an int that saves the value of the roll
                 if(roll1 >= 1 && roll1 <= 7){
                     System.out.println("You’re basically unstoppable! Some may be directionally challenged, but you aren’t! Hopefully you aren’t late to the next one!!!");
-           //if the roll value is {1 - 7},, print line 78
+           //if the roll value is {1 - 7}, print line 78
                 } else if (roll1 >= 8 && roll1 <= 15){
                 System.out.println("You start to look for your next class, but you realize something. You’re completely lost. As you lose hope you…\n");
                 printDramaticText("Random student: " + "OUCH!!\nI’m so sorry i didnt mean to run into you!! I knocked the books out of your hands too! Please forgive me!!\n");
@@ -90,30 +88,38 @@ public class Game {
                 printDramaticText("Hey hey! She’s waiting for you to say something! I’m trying to not interrupt your thoughts but you can’t zone out now!\n");
                 System.out.println("You snap out of it and ask where your first period class is. You get the directions to not only your first period class, but to all of the classes you have today! You thank the girl and run to class before you get marked late.");
             }
+            //if the roll value is {8 - 15}, print lines 85 to 89
             else{
                 System.out.println("You run around the school, hurriedly trying to find your class. Unfortunately, the bell has rung, and you only get more and more lost. After 5 minutes, you finally find your class, but you start to wonder if you should even enter…");
                 printDramaticText("C’mon, what are you waiting for? You didn’t spend all that time just to chicken out! You’re going in, no matter what!!");
                 System.out.println("The teacher reprimands you for being late, but class continues on as normal. You introduce yourself to everyone, the class nods and goes back to doing their work.");
                 player.losealife();
+                lives--;
             }
+            //if the roll value is (16 - 20}, print lines 93 to 95, and make the player lose a life
         System.out.println("⋆*･ﾟ:⋆*･ﾟTIME SKIP⋆*･ﾟ:⋆*･ﾟ\n");
         System.out.println("Its lunch time! Finally! You’re starving, but wait…\n DICE ROLL!!");
-            scanner.nextLine();
-         int roll2 = Player.rollD20();
+        scanner.nextLine();
+        int roll2 = Player.rollD20();
+        //make an int to store the roll value
             if(roll2 >= 1 && roll2 <= 10){
                 System.out.println("You have your wallet!! Time to wait in the line that seems to span the whole cafeteria…");
             }
+            //if the role value is {1 - 10}, print line 106
             else{
                 System.out.println("You left your wallet at home… Looks like you have to starve :(");
                 player.losealife();
                 lives--;
             }
+            //if the role value is {11-20}, print line 110 and make the player lose a life
         printDramaticText("You look around for a place to sit. You see a person sitting alone, and decide to sit with her. Normally, you would get a fleshed out interaction with her, but because the game devs don’t get paid enough, all you need to know is that the girl’s name is Amber and that you and Amber are bros now. If you want more dialogue, you can fund the dev team yourself.");
         printDramaticText("\nYou head back to class, but it seems like you’re about to run into trouble! The dean is walking up to you, and you realize why. You forgot that in this school, you can’t have your phone out! You: ");
-        System.out.println ("A) Run away! What is she gonna do, run down?\nB) Confront her and convince her to change the policy\nC) Accept your detention"); 
+        System.out.println ("A) Run away! What is she gonna do, run down?\nB) Confront her and convince her to change the policy\nC) Accept your detention\nPress A for choice A, B for choice B, and C for choice C"); 
             String choice2 = scanner.nextLine();
+            //makes a variable to save the players input
+            int roll3 = player.rollD20();
+            //makes an int to store the roll value
             if(choice2.equals("A") || choice2.equals("a")){
-                int roll3 = player.rollD20();
                     if(roll3 >= 0 && roll3 <= 10){
                         System.out.println("You successfully escaped! All of that running to catch the train has finally paid off!");
                     } else {
@@ -122,8 +128,8 @@ public class Game {
                         lives--;
                     }
                 }
+            //if the player types A or a, and the roll value is {1 - 10}, print line 124. If the roll value is {11 - 20}, print line 126, and make the player lose a life.    
             if(choice2.equals("B") || choice2.equals("b")){
-                int roll3 = player.rollD20();
                 if(roll3 >= 0 && roll3 <= 10){
                 System.out.println("Somehow, you managed to convince the dean to remove the phone policy! Now everyone in the school loves you, and you gsin respect from the teachers. Its only day 1 and you're already extremely popular!");
                 }else{
@@ -132,34 +138,39 @@ public class Game {
                     lives--;
                 }
             }
+            //if the player types B or b, and the roll value is {1 - 10}, print line 134. If the roll value is {11 - 20}, print line 136 and make the player lose a life.
             if (choice2.equals("C") || choice2.equals("c")){
-                int roll3 = player.rollD20();
                 if(roll3 >= 0 && roll3 <= 18){
                     System.out.println("Did you think the dean would excuse you out of pity? Nice try.");
                     player.losealife();
                     lives--;
                 } else{
                     System.out.println("Wow! the dean was nice enough to excuse your detention. I guess she took pity on you for being new? Be more careful in the future, because the dean isn't known for her acts of charity.");
-                }
-            } else {
+                    }
+            } 
+            //if the player types B or b, and the roll value is {1 - 18}, print line 144 and make the player lose a life. If the roll value is 19 or 20, print line 148.
+            else {
                 System.out.println("this extra line of code is taking up unecessary space because of your stupidity. The dev team is done with you");
             }
+            //if the player doesn't type A or a, B or b, or C or c, print line 153
         printDramaticText("You walk to class and try to get through the rest of the day. It's 6th period and...");
         printDramaticText("HEY! YOU CAN'T FALL ASLEEP! THIS IS GONNA BE ON THE QUIZ!!");
         printDramaticText("You can really...feel...the sleepiness...kick in... You:");
         System.out.println("A) Fall asleep. You already knew this stuff anyway.\nB) Stay awake. If you don't, the quiz will kick your butt! Besides, what if the teacher decides to call you out for napping?");
             String choice3 = scanner.nextLine();
+            int roll4 = player.rollD20();
+            //make
             if (choice3.equals("A") || choice3.equals("a")){
-                int roll4 = player.rollD20();
                 if (roll4 >= 0 && roll4 <= 12)
                 System.out.println("You take a little nap, and you even start to dream for a bit. You wake up energized and refreshed, ready for the last classes of the day!");
-            } else {
+            } 
+            //If the player types A or a and has a roll value of {0 - 12}, print line 165
+            else {
                 System.out.println("The teacher catches you sleeping, and humiliates you in front of the class. What a lovely first impression...");
                 player.losealife();
                 lives--;
             }
             if (choice3.equals("B") || choice3.equals("b")){
-                int roll4 = player.rollD20();
                 if (roll4 >= 0 && roll4 <=15){
                     System.out.println("You fight your sleepiness and pay attention. Turns out you already knew the information, but at least it served as a refresher?");
                 } else{
@@ -167,7 +178,6 @@ public class Game {
                     player.losealife();
                     lives--;
                 }
-              
             } else {
                 System.out.println("if you dont follow the instructions the poor dev team worked on john coding WILL place a curse on you");
             } 
