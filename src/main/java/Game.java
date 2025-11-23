@@ -149,29 +149,31 @@ public class Game {
             String choice3 = scanner.nextLine();
             //store player's input in a variable 
             scanner.nextLine();
-            int roll4 = player.rollD20();
+    
             //make an int to store the roll value
             if (choice3.equals("A") || choice3.equals("a")){
+                int roll4 = player.rollD20();
                 if (roll4 >= 0 && roll4 <= 12){
                 System.out.println("You take a little nap, and you even start to dream for a bit. You wake up energized and refreshed, ready for the last classes of the day!");
                 }
             } 
-            //If the player types A or a and has a roll value of {0 - 12}, print line 156
+            //Roll a D20. If the player types A or a and has a roll value of {0 - 12}, print line 156
             else {
                 System.out.println("The teacher catches you sleeping, and humiliates you in front of the class. What a lovely first impression...");
                 player.losealife();
                 lives--;
-            //If the player types A or a and has a roll value of {13 - 20}, print line 161 and make the player lose a life
+            //If the player types A or a and has a roll value of {13 - 20}, print line 162 and make the player lose a life
             }
             if (lives == 0 && player.life == 0){
             break;
             //if at this point in the game the player is dead, end the game
             }
             if (choice3.equals("B") || choice3.equals("b")){
+                int roll4 = player.rollD20();
                 if (roll4 >= 0 && roll4 <= 15){
                     System.out.println("You fight your sleepiness and pay attention. Turns out you already knew the information, but at least it served as a refresher?");
                 } 
-            //if the player types B or b and and the roll value is {0 - 15}, print line 172
+            //Roll a D20. if the player types B or b and and the roll value is {0 - 15}, print line 174
                 else{
                     System.out.println("You try your hardest to not succumb to your sleepiness, but for the whole period you were on the verge of being knocked out. You ended up not paying attention as a result of trying not to sleep. At that point, you should've just slept...");
                     player.losealife();
