@@ -148,9 +148,8 @@ public class Game {
         System.out.println("A) Fall asleep. You already knew this stuff anyway.\nB) Stay awake. If you don't, the quiz will kick your butt! Besides, what if the teacher decides to call you out for napping?");
             String choice3 = scanner.nextLine();
             //store player's input in a variable 
+            System.out.println("Press enter to roll");
             scanner.nextLine();
-    
-            //make an int to store the roll value
             if (choice3.equals("A") || choice3.equals("a")){
                 int roll4 = player.rollD20();
                 if (roll4 >= 0 && roll4 <= 12){
